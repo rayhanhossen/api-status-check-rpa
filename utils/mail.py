@@ -13,12 +13,13 @@ class MailSender:
     def send_mail(self, subject, body):
         # Set up the email message
         msg = MIMEMultipart()
-        msg['From'] = os.environ.get("EMAIL_SENDER_MAIL")
-        msg['To'] = os.environ.get("EMAIL_RECEVIER_MAIL")
+        msg['From'] = os.environ.get("FROM_MAIL")
+        msg['To'] = os.environ.get("TO_MAIL")
+        msg['Cc'] = os.environ.get("CC_MAIL")
         msg['Subject'] = subject
 
         # Add the message body
-        msg.attach(MIMEText(body, 'plain'))
+        msg.attach(MIMEText(body, 'html'))
 
         # Set up the SMTP server and send the message
         smtp_server = os.environ.get("EMAIL_HOST")  # Replace with your SMTP server
@@ -29,6 +30,6 @@ class MailSender:
         with smtplib.SMTP_SSL(smtp_server, smtp_port) as server:
             # server.starttls()
             server.login(smtp_username, smtp_password)
-            server.sendmail(smtp_username, msg['To'], msg.as_string())
+            server.sendmail(msg['From'], [msg['To'], msg['Cc']], msg.as_string())
 
         print('Email sent successfully!')

@@ -1,4 +1,8 @@
 {
-  "jars_api": "http://202.133.91.38:7003/api/v1/site/career",
-  "turbo_api": "http://202.133.91.38:9999/api/v1/core/site"
+  "JARS": [
+    {
+      "moduleName": "alpineiq",
+      "apiURL": "http://202.133.91.39:7003/api/v1/alpineiq/personas/all"
+    }
+  ]
 }
