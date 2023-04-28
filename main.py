@@ -30,9 +30,11 @@ for endpoint_key, endpoint_value in api_endpoints.items():
 
             # Check the response status code
             if response.status_code == 200:
+                print(f"{endpoint_key} {data['moduleName']} module api - {data['apiURL']} is live.")
                 # If the API is live, log the result
                 logging.info(f"{endpoint_key} {data['moduleName']} module api - {data['apiURL']} is live.")
         except Exception as e:
+            print(f"{endpoint_key} {data['moduleName']} module is currently down. Error - {e}")
             # If the API is down, log the result and send an email notification
             logging.error(f"{endpoint_key} {data['moduleName']} module is currently down. Error - {e}")
 

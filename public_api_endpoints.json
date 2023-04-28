@@ -3,6 +3,10 @@
     {
       "moduleName": "alpineiq",
       "apiURL": "https://1space.co:7003/api/v1/alpineiq/personas/all"
+    },
+    {
+      "moduleName": "age-verification-cms",
+      "apiURL": "https://1space.co:7003/api/v1/age-verification-cms"
     }
   ]
 }
