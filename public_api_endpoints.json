@@ -2,7 +2,7 @@
   "JARS": [
     {
       "moduleName": "alpineiq",
-      "apiURL": "http://202.133.91.39:7003/api/v1/alpineiq/personas/all"
+      "apiURL": "https://1space.co:7003/api/v1/alpineiq/personas/all"
     }
   ]
 }

@@ -1,5 +1,6 @@
 import json
 import logging
+import warnings
 from datetime import datetime
 
 import requests
@@ -21,8 +22,11 @@ with open('./public_api_endpoints.json', 'r') as f:
 for endpoint_key, endpoint_value in api_endpoints.items():
     for data in endpoint_value:
         try:
+            # Disable the InsecureRequestWarning
+            warnings.filterwarnings('ignore', message='Unverified HTTPS request')
+
             # Send a GET request to the API endpoint
-            response = requests.get(data['apiURL'])
+            response = requests.get(data['apiURL'], verify=False)
 
             # Check the response status code
             if response.status_code == 200:
